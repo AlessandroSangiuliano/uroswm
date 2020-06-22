@@ -10,6 +10,8 @@
 		FA6B98B924A0AA49009E38FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6B98B824A0AA49009E38FE /* Foundation.framework */; };
 		FA6B98BC24A0AA49009E38FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6B98BB24A0AA49009E38FE /* main.m */; };
 		FA6B98C024A0AA49009E38FE /* uroswm.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA6B98BF24A0AA49009E38FE /* uroswm.1 */; };
+		FA6B98C824A0AABA009E38FE /* URSEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6B98C724A0AABA009E38FE /* URSEventHandler.m */; };
+		FA6B98D024A0C557009E38FE /* XCBKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6B98C924A0AEF6009E38FE /* XCBKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,9 @@
 		FA6B98BB24A0AA49009E38FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA6B98BE24A0AA49009E38FE /* uroswm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uroswm-Prefix.pch"; sourceTree = "<group>"; };
 		FA6B98BF24A0AA49009E38FE /* uroswm.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = uroswm.1; sourceTree = "<group>"; };
+		FA6B98C624A0AABA009E38FE /* URSEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URSEventHandler.h; sourceTree = "<group>"; };
+		FA6B98C724A0AABA009E38FE /* URSEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URSEventHandler.m; sourceTree = "<group>"; };
+		FA6B98C924A0AEF6009E38FE /* XCBKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCBKit.framework; path = ../../../../Library/Frameworks/XCBKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6B98D024A0C557009E38FE /* XCBKit.framework in Frameworks */,
 				FA6B98B924A0AA49009E38FE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +71,7 @@
 		FA6B98B724A0AA49009E38FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA6B98C924A0AEF6009E38FE /* XCBKit.framework */,
 				FA6B98B824A0AA49009E38FE /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -74,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				FA6B98BB24A0AA49009E38FE /* main.m */,
+				FA6B98C624A0AABA009E38FE /* URSEventHandler.h */,
+				FA6B98C724A0AABA009E38FE /* URSEventHandler.m */,
 				FA6B98BF24A0AA49009E38FE /* uroswm.1 */,
 				FA6B98BD24A0AA49009E38FE /* Supporting Files */,
 			);
@@ -139,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6B98C824A0AABA009E38FE /* URSEventHandler.m in Sources */,
 				FA6B98BC24A0AA49009E38FE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,8 +227,21 @@
 		FA6B98C424A0AA49009E38FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "uroswm/uroswm-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/opt/X11/include,
+				);
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-L/opt/X11/lib",
+					"-lxcb",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -226,8 +249,35 @@
 		FA6B98C524A0AA49009E38FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "uroswm/uroswm-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/opt/X11/include,
+				);
+				"OTHER_LDFLAGS[arch=*]" = (
+					"//:configuration",
+					"=",
+					"Debug\nOTHER_LDFLAGS[arch=*]",
+					"=",
+					"-L/opt/X11/lib",
+					"-lxcb\n\n//:completeSettings",
+					"=",
+					"none\n//:configuration",
+					"=",
+					"Debug\nOTHER_LDFLAGS[arch=*]",
+					"=",
+					"-L/opt/X11/lib",
+					"-lxcb\n\n//:completeSettings",
+					"=",
+					"none
+",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

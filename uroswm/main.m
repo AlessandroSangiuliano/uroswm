@@ -7,16 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "URSEventHandler.h"
 
 int main(int argc, const char * argv[])
 {
-
-    @autoreleasepool {
-        
+    @autoreleasepool
+    {
         // insert code here...
-        NSLog(@"Hello, World!");
+        NSLog(@"Starting uroswm...");
         
+        URSEventHandler* ursHandler = [[URSEventHandler alloc] init];
+        [ursHandler registerAsWindowManager];
+        [ursHandler startEventHandlerLoop];
     }
+    
     return 0;
 }
 

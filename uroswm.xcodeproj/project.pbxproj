@@ -11,7 +11,7 @@
 		FA6B98BC24A0AA49009E38FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6B98BB24A0AA49009E38FE /* main.m */; };
 		FA6B98C024A0AA49009E38FE /* uroswm.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA6B98BF24A0AA49009E38FE /* uroswm.1 */; };
 		FA6B98C824A0AABA009E38FE /* URSEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6B98C724A0AABA009E38FE /* URSEventHandler.m */; };
-		FA6B98D024A0C557009E38FE /* XCBKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6B98C924A0AEF6009E38FE /* XCBKit.framework */; };
+		FA6B98D124A0E61A009E38FE /* XCBKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6B98C924A0AEF6009E38FE /* XCBKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6B98D024A0C557009E38FE /* XCBKit.framework in Frameworks */,
+				FA6B98D124A0E61A009E38FE /* XCBKit.framework in Frameworks */,
 				FA6B98B924A0AA49009E38FE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

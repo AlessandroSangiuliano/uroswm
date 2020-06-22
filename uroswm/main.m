@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "URSEventHandler.h"
+#import <XCBKit/XCBShape.h>
 
 int main(int argc, const char * argv[])
 {

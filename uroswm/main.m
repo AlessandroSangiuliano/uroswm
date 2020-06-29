@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "URSEventHandler.h"
-#import <XCBKit/XCBShape.h>
+#import <XCBKit/utils/XCBShape.h>
+#import <AppKit/AppKit.h>
 
 int main(int argc, const char * argv[])
 {
@@ -16,12 +17,11 @@ int main(int argc, const char * argv[])
     {
         // insert code here...
         NSLog(@"Starting uroswm...");
-        
+
         URSEventHandler* ursHandler = [[URSEventHandler alloc] init];
         [ursHandler registerAsWindowManager];
         [ursHandler startEventHandlerLoop];
     }
-    
+
     return 0;
 }
-

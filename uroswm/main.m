@@ -18,9 +18,6 @@ int main(int argc, const char * argv[])
         // insert code here...
         NSLog(@"Starting uroswm...");
 
-        NSApplication *myApplication;
-        myApplication = [NSApplication sharedApplication];
-
         URSEventHandler* ursHandler = [[URSEventHandler alloc] init];
         [ursHandler registerAsWindowManager];
         [ursHandler startEventHandlerLoop];

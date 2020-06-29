@@ -64,6 +64,12 @@
     {
         switch (e->response_type & ~0x80)
         {
+            case XCB_VISIBILITY_NOTIFY:
+                NSLog(@"");
+                xcb_visibility_notify_event_t* visibilityEvent = (xcb_visibility_notify_event_t*)e;
+                NSLog(@"Visibility Event for window: %u", visibilityEvent->window);
+                [connection handleVisibilityEvent:visibilityEvent];
+                break;
             case XCB_EXPOSE:
                 NSLog(@"");
                 xcb_expose_event_t * exposeEvent = (xcb_expose_event_t *)e;
@@ -110,12 +116,6 @@
                 xcb_focus_out_event_t* focusOutEvent = (xcb_focus_out_event_t*)e;
                 NSLog(@"Focus Out Event for window %u", focusOutEvent->event);
                 //[connection handleFocusOut:focusOutEvent];
-                break;
-
-            case XCB_VISIBILITY_NOTIFY:
-                NSLog(@"");
-                xcb_visibility_notify_event_t* visibilityEvent = (xcb_visibility_notify_event_t*)e;
-                NSLog(@"Enter notify for window %u", visibilityEvent->window);
                 break;
 
             case XCB_BUTTON_PRESS:
@@ -182,6 +182,15 @@
                 xcb_configure_request_event_t* configRequest = (xcb_configure_request_event_t*)e;
                 NSLog(@"Configure request for window %u", configRequest->window);
                 [connection handleConfigureWindowRequest:configRequest];
+                [connection flush];
+                [connection setNeedFlush:NO];
+                break;
+
+            case XCB_CONFIGURE_NOTIFY:
+                NSLog(@"");
+                xcb_configure_notify_event_t* configureNotify = (xcb_configure_notify_event_t*)e;
+                NSLog(@"Configure notify for window %u", configureNotify->window);
+                [connection handleConfigureNotify:configureNotify];
                 [connection flush];
                 [connection setNeedFlush:NO];
                 break;

@@ -21,7 +21,7 @@ $(TOOL_NAME)_HEADER_FILES = \
 
 $(TOOL_NAME)_TOOL_LIBS = -lXCBKit -lxcb
 
-ADDITIONAL_OBJCFLAGS = -std=c99 -g -O0 -fobjc-arc #-Wno-unused -Werror -Wall
+ADDITIONAL_OBJCFLAGS = -std=c99 -g -O0 -fobjc-arc -Wall #-Wno-unused -Werror -Wall
 
 #LIBRARIES_DEPEND_UPON += $(shell pkg-config --libs xcb) $(FND_LIBS) $(OBJC_LIBS) $(SYSTEM_LIBS)
 

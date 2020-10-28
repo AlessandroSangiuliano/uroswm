@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "URSEventHandler.h"
 #import <XCBKit/utils/XCBShape.h>
-#import <AppKit/AppKit.h>
 
 int main(int argc, const char * argv[])
 {

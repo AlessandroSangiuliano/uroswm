@@ -11,7 +11,7 @@
 		FA6B98BC24A0AA49009E38FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6B98BB24A0AA49009E38FE /* main.m */; };
 		FA6B98C024A0AA49009E38FE /* uroswm.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA6B98BF24A0AA49009E38FE /* uroswm.1 */; };
 		FA6B98C824A0AABA009E38FE /* URSEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6B98C724A0AABA009E38FE /* URSEventHandler.m */; };
-		FA6B98D124A0E61A009E38FE /* XCBKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6B98C924A0AEF6009E38FE /* XCBKit.framework */; };
+		FA7FCC4624AB4F1D002C1CEE /* XCBKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7FCC4524AB4F1D002C1CEE /* XCBKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,7 +35,7 @@
 		FA6B98BF24A0AA49009E38FE /* uroswm.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = uroswm.1; sourceTree = "<group>"; };
 		FA6B98C624A0AABA009E38FE /* URSEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URSEventHandler.h; sourceTree = "<group>"; };
 		FA6B98C724A0AABA009E38FE /* URSEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URSEventHandler.m; sourceTree = "<group>"; };
-		FA6B98C924A0AEF6009E38FE /* XCBKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCBKit.framework; path = ../../../../Library/Frameworks/XCBKit.framework; sourceTree = "<group>"; };
+		FA7FCC4524AB4F1D002C1CEE /* XCBKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCBKit.framework; path = ../../../../Library/Frameworks/XCBKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6B98D124A0E61A009E38FE /* XCBKit.framework in Frameworks */,
+				FA7FCC4624AB4F1D002C1CEE /* XCBKit.framework in Frameworks */,
 				FA6B98B924A0AA49009E38FE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,7 +71,7 @@
 		FA6B98B724A0AA49009E38FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FA6B98C924A0AEF6009E38FE /* XCBKit.framework */,
+				FA7FCC4524AB4F1D002C1CEE /* XCBKit.framework */,
 				FA6B98B824A0AA49009E38FE /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -227,9 +227,11 @@
 		FA6B98C424A0AA49009E38FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/XCBKit-higgipjmtzglkaepujhkyrjjgdhs/Build/Products/Release",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "uroswm/uroswm-Prefix.pch";
@@ -243,15 +245,18 @@
 					"-lxcb",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
 			};
 			name = Debug;
 		};
 		FA6B98C524A0AA49009E38FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/XCBKit-higgipjmtzglkaepujhkyrjjgdhs/Build/Products/Release",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "uroswm/uroswm-Prefix.pch";
@@ -301,6 +306,7 @@
 				FA6B98C524A0AA49009E38FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

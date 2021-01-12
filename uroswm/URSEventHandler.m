@@ -121,7 +121,8 @@
                 //NSLog(@"");
                 xcb_focus_in_event_t *focusInEvent = (xcb_focus_in_event_t *) e;
                 //NSLog(@"Focus In Event for window %u", focusInEvent->event);
-                //[connection handleFocusIn:focusInEvent];
+                [connection handleFocusIn:focusInEvent];
+                [connection flush];
                 break;
             }
             case XCB_FOCUS_OUT:
@@ -130,6 +131,7 @@
                 xcb_focus_out_event_t *focusOutEvent = (xcb_focus_out_event_t *) e;
                 //NSLog(@"Focus Out Event for window %u", focusOutEvent->event);
                 [connection handleFocusOut:focusOutEvent];
+                [connection flush];
                 break;
             }
             case XCB_BUTTON_PRESS:
@@ -222,6 +224,8 @@
             {
                 //NSLog(@"");
                 xcb_property_notify_event_t *propEvent = (xcb_property_notify_event_t *) e;
+                [connection handlePropertyNotify:propEvent];
+                [connection flush];
                 //NSLog(@"Window %u notify property change", propEvent->window);
                 break;
             }

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "URSEventHandler.h"
 #import <XCBKit/utils/XCBShape.h>
+#import <XCBKit/services/TitleBarSettingsService.h>
 
 int main(int argc, const char * argv[])
 {
@@ -16,6 +17,9 @@ int main(int argc, const char * argv[])
     {
         // insert code here...
         NSLog(@"Starting uroswm...");
+
+        TitleBarSettingsService *settings = [TitleBarSettingsService sharedInstance];
+        [settings setHeight:23];
 
         URSEventHandler* ursHandler = [[URSEventHandler alloc] init];
         [ursHandler registerAsWindowManager];

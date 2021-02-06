@@ -2,7 +2,7 @@ PACKAGE_NAME = uroswm
 
 include $(GNUSTEP_MAKEFILES)/common.make
 
-VERSION = 0.0.3
+VERSION = 0.0.4
 
 DEPENDENCIES = XCBKit
 

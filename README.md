@@ -1,4 +1,4 @@
-Version: 0.0.3
+Version: 0.0.4
 
 uroswm is a window manager written in objective-c and using the XCBKit framework
 

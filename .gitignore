@@ -12,3 +12,9 @@ uroswm\.xcodeproj/project\.pbxproj
 uroswm/log.txt
 
 .idea/workspace.xml
+
+.idea/
+
+cmake-build-debug/
+
+CMakeLists.txt

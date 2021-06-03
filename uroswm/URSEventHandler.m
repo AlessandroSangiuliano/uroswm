@@ -27,7 +27,7 @@
         return nil;
     }
 
-    connection = [XCBConnection sharedConnection];
+    connection = [[XCBConnection alloc] init];
 
     return self;
 }
@@ -49,9 +49,14 @@
                                                                          withXCBClass:XCB_COPY_FROM_PARENT
                                                                          withVisualId:visual
                                                                         withValueMask:0
-                                                                        withValueList:NULL];
+                                                                        withValueList:NULL registerWindow:YES];
 
-    [connection registerAsWindowManager:YES screenId:1 selectionWindow:selectionManagerWindow];
+    BOOL registered = [connection registerAsWindowManager:YES screenId:1 selectionWindow:selectionManagerWindow];
+
+    if (!registered)
+        exit(0);
+
+    [connection registerWindow:selectionManagerWindow];
 
     EWMHService *ewmhService = [EWMHService sharedInstanceWithConnection:connection];
     [ewmhService putPropertiesForRootWindow:[screen rootWindow] andWmWindow:selectionManagerWindow];
@@ -222,7 +227,7 @@
             }
             case XCB_PROPERTY_NOTIFY:
             {
-                //NSLog(@"");
+                /*NSLog(@"Event from wm: %d", e->response_type);*/
                 xcb_property_notify_event_t *propEvent = (xcb_property_notify_event_t *) e;
                 [connection handlePropertyNotify:propEvent];
                 [connection flush];

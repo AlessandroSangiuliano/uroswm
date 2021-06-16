@@ -234,6 +234,12 @@
                 //NSLog(@"Window %u notify property change", propEvent->window);
                 break;
             }
+            case XCB_REPARENT_NOTIFY:
+            {
+                xcb_reparent_notify_event_t *repNotifyEvent = (xcb_reparent_notify_event_t*) e;
+                [connection handleReparentNotify:repNotifyEvent];
+                break;
+            }
             default:
                 break;
         }

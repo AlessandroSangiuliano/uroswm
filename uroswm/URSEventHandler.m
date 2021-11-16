@@ -27,7 +27,7 @@
         return nil;
     }
 
-    connection = [[XCBConnection alloc] initAsWindowManager:YES];
+    connection = [XCBConnection sharedConnectionAsWindowManager:YES];
 
     return self;
 }

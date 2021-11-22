@@ -1,5 +1,5 @@
 //
-//  URSEventHandler.h
+//  UrosWMEventHandler.h
 //  uroswm
 //
 //  Created by Alessandro Sangiuliano on 22/06/20.
@@ -10,7 +10,7 @@
 #import <XCBKit/XCBConnection.h>
 #import <XCBKit/XCBWindow.h>
 
-@interface URSEventHandler : NSObject
+@interface UrosWMEventHandler : NSObject
 
 @property (strong, nonatomic) XCBConnection* connection;
 @property (strong, nonatomic) XCBWindow* selectionManagerWindow;

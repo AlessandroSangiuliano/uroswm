@@ -1,17 +1,17 @@
 //
-//  URSEventHandler.m
+//  UrosWMEventHandler.m
 //  uroswm
 //
 //  Created by Alessandro Sangiuliano on 22/06/20.
 //  Copyright (c) 2020 Alessandro Sangiuliano. All rights reserved.
 //
 
-#import "URSEventHandler.h"
+#import "UrosWMEventHandler.h"
 #import <XCBKit/XCBScreen.h>
 #import <xcb/xcb.h>
 #import <XCBKit/services/EWMHService.h>
 
-@implementation URSEventHandler
+@implementation UrosWMEventHandler
 
 @synthesize connection;
 @synthesize selectionManagerWindow;

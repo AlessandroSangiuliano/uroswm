@@ -14,10 +14,12 @@ $(TOOL_NAME)_LD_FLAGS += -L./XCBKit/XCBKit.framkework/
 
 $(TOOL_NAME)_OBJC_FILES = \
 		main.m \
-		URSEventHandler.m
+		UrosWMEventHandler.m \
+		UrosWMServer.m
 
 $(TOOL_NAME)_HEADER_FILES = \
-		URSEventHandler.h
+		UrosWMEventHandler.h \
+		UrosWMServer.h
 
 $(TOOL_NAME)_TOOL_LIBS = -lXCBKit -lxcb
 

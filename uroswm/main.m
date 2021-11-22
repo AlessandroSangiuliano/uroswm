@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "URSEventHandler.h"
+#import "UrosWMEventHandler.h"
 #import <XCBKit/utils/XCBShape.h>
 #import <XCBKit/services/TitleBarSettingsService.h>
 
@@ -27,7 +27,7 @@ int main(int argc, const char * argv[])
         [settings setMinimizePosition:minimizePosition];
         [settings setMaximizePosition:maximizePosition];
 
-        URSEventHandler* ursHandler = [[URSEventHandler alloc] init];
+        UrosWMEventHandler* ursHandler = [[UrosWMEventHandler alloc] init];
         [ursHandler registerAsWindowManager];
         [ursHandler startEventHandlerLoop];
     }

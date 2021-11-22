@@ -16,8 +16,10 @@
 
 @property (strong, nonatomic) NSString *serverName;
 @property (strong, nonatomic) XCBConnection *connection;
+@property (strong, nonatomic) NSConnection *conn;
 
 - (instancetype) initWithName:(NSString *)aName andConnection:(XCBConnection *)aConnection;
 - (NSMutableDictionary *) requestWindowsMap;
+- (void) becomeServer;
 
 @end

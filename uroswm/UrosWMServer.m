@@ -11,6 +11,7 @@
 
 @synthesize serverName;
 @synthesize connection;
+@synthesize conn;
 
 - (instancetype)initWithName:(NSString *)aName andConnection:(XCBConnection *)aConnection;
 {
@@ -34,10 +35,28 @@
     [connection windowsMap];
 }
 
+- (void)becomeServer
+{
+    conn = [NSConnection new];
+    
+    if (![conn registerName:serverName])
+    {
+        NSLog(@"Could not register as server...");
+        return;
+    }
+    
+    [conn setRootObject:self];
+    
+    NSLog(@"UrosWm registered as server...");
+    
+    [[NSRunLoop currentRunLoop] run];
+}
+
 - (void) dealloc
 {
     serverName = nil;
     connection = nil;
+    conn = nil;
 }
 
 @end

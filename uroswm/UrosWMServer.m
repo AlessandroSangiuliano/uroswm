@@ -6,7 +6,6 @@
 
 #import "UrosWMServer.h"
 #import <XCBKit/XCBConnection.h>
-#import <objc/runtime.h>
 
 @implementation UrosWMServer
 

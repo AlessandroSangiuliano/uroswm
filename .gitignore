@@ -17,7 +17,7 @@ uroswm/log.txt
 
 cmake-build-debug/
 
-CMakeLists.txt
+uroswm/CMakeLists.txt
 
 CMakeCache.txt
 
@@ -28,3 +28,9 @@ CMakeFiles/3.21.4/
 CMakeFiles/
 
 uroswm.xcodeproj/
+
+*.cbp
+
+*.cmake
+
+uroswm/Makefile

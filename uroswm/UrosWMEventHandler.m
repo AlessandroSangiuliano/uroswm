@@ -10,6 +10,7 @@
 #import <XCBKit/XCBScreen.h>
 #import <xcb/xcb.h>
 #import <XCBKit/services/EWMHService.h>
+#import "UrosWMClient.h"
 
 @implementation UrosWMEventHandler
 
@@ -175,6 +176,16 @@
                 [connection handleMapRequest:mapRequestEvent];
                 [connection flush];
                 [connection setNeedFlush:NO];
+                
+                if ([connection isWindowsMapUpdated])
+                {
+                    UrosWMClient *urosWmClient = [[UrosWMClient alloc] init];
+                    NSNotification *notification = [NSNotification notificationWithName:WINDOWSMAPUPDATED object:urosWmClient];
+                    [urosWmClient sendNotification:notification];
+                    urosWmClient = nil;
+                    notification = nil;
+                }
+                
                 break;
             }
             case XCB_UNMAP_NOTIFY:

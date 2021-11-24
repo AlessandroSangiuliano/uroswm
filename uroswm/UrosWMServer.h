@@ -7,8 +7,11 @@
 
 #import <Foundation/Foundation.h>
 #import <XCBKit/protocols/server/Server.h>
+#import <XCBKit/enums/ERequests.h>
+#import <objc/runtime.h>
 
 @class XCBConnection;
+
 
 @interface UrosWMServer : NSObject <Server>
 {
@@ -19,7 +22,7 @@
 @property (strong, nonatomic) NSConnection *conn;
 
 - (instancetype) initWithName:(NSString *)aName andConnection:(XCBConnection *)aConnection;
-- (NSMutableDictionary *) requestWindowsMap;
+- (id) handleRequestFor:(Request)aRequest;
 - (void) becomeServer;
 
 @end

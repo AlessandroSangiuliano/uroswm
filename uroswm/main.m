@@ -10,6 +10,7 @@
 #import "UrosWMEventHandler.h"
 #import <XCBKit/utils/XCBShape.h>
 #import <XCBKit/services/TitleBarSettingsService.h>
+#import "UrosWMServer.h"
 
 int main(int argc, const char * argv[])
 {
@@ -29,6 +30,10 @@ int main(int argc, const char * argv[])
 
         UrosWMEventHandler* ursHandler = [[UrosWMEventHandler alloc] init];
         [ursHandler registerAsWindowManager];
+    
+        UrosWMServer *urosWmServer = [[UrosWMServer alloc] initWithName:@"UrosWMServer" andConnection:[ursHandler connection]];
+        [NSThread detachNewThreadSelector:@selector(becomeServer) toTarget:urosWmServer withObject:nil];
+    
         [ursHandler startEventHandlerLoop];
     }
 

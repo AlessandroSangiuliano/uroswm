@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <XCBKit/protocols/server/Server.h>
+#import <XCBKit/enums/ERequests.h>
 
 @class XCBConnection;
 
@@ -19,7 +20,7 @@
 @property (strong, nonatomic) NSConnection *conn;
 
 - (instancetype) initWithName:(NSString *)aName andConnection:(XCBConnection *)aConnection;
-- (NSMutableDictionary *) requestWindowsMap;
+- (id) handleRequestFor:(Request)aRquest;
 - (void) becomeServer;
 
 @end

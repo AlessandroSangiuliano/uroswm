@@ -6,6 +6,7 @@
 
 #import "UrosWMServer.h"
 #import <XCBKit/XCBConnection.h>
+#import <objc/runtime.h>
 
 @implementation UrosWMServer
 
@@ -29,10 +30,26 @@
     return self;
 }
 
-- (NSMutableDictionary *)requestWindowsMap
+- (id)handleRequestFor:(Request)aRquest
 {
-    NSLog(@"Request for window map...");
-    [connection windowsMap];
+    id object;
+    
+    switch (aRquest)
+    {
+        case WindowsMapRequest:
+        {
+            NSLog(@"Request for window map...");
+            object = [connection windowsMap];
+            break;
+        }
+        default:
+        {
+            NSLog(@"Incorect Request...");
+            break;
+        }
+    }
+    
+    return object;
 }
 
 - (void)becomeServer

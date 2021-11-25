@@ -27,6 +27,7 @@
 
 - (void)sendNotification:(NSNotification *)aNotification
 {
+    NSLog(@"Posting notification...");
     [notificationCenter postNotification:aNotification];
 }
 

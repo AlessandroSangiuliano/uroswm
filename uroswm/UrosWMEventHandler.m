@@ -180,7 +180,7 @@
                 if ([connection isWindowsMapUpdated])
                 {
                     UrosWMClient *urosWmClient = [[UrosWMClient alloc] init];
-                    NSNotification *notification = [NSNotification notificationWithName:WINDOWSMAPUPDATED object:urosWmClient];
+                    NSNotification *notification = [NSNotification notificationWithName:WINDOWSMAPUPDATED object:nil];
                     [urosWmClient sendNotification:notification];
                     urosWmClient = nil;
                     notification = nil;

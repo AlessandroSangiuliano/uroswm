@@ -31,8 +31,9 @@ int main(int argc, const char * argv[])
         UrosWMEventHandler* ursHandler = [[UrosWMEventHandler alloc] init];
         [ursHandler registerAsWindowManager];
     
-        UrosWMServer *urosWmServer = [[UrosWMServer alloc] initWithName:@"UrosWMServer" andConnection:[ursHandler connection]];
-        [NSThread detachNewThreadSelector:@selector(becomeServer) toTarget:urosWmServer withObject:nil];
+        // disable the feature 'server' that makes the window manager to acts like a server too
+        /*UrosWMServer *urosWmServer = [[UrosWMServer alloc] initWithName:@"UrosWMServer" andConnection:[ursHandler connection]];
+        [NSThread detachNewThreadSelector:@selector(becomeServer) toTarget:urosWmServer withObject:nil];*/
     
         [ursHandler startEventHandlerLoop];
     }

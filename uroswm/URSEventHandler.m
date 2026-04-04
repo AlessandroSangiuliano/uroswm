@@ -45,7 +45,7 @@
                                                                         withYPosition:-1
                                                                             withWidth:1
                                                                            withHeight:1
-                                                                     withBorrderWidth:0
+                                                                     withBorderWidth:0
                                                                          withXCBClass:XCB_COPY_FROM_PARENT
                                                                          withVisualId:visual
                                                                         withValueMask:0
